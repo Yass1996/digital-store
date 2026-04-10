@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سلة المشتريات - متجر المنتجات الرقمية</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <i class="fas fa-download"></i>
+                    <span>متجر المنتجات الرقمية</span>
+                </div>
+                
+                <nav class="nav">
+                    <a href="index.html" class="nav-link">الرئيسية</a>
+                    <a href="products.html" class="nav-link">المنتجات</a>
+                    <a href="cart.html" class="nav-link active">
+                        <i class="fas fa-shopping-cart"></i>
+                        السلة
+                        <span class="cart-badge" id="cart-count">0</span>
+                    </a>
+                    <a href="login.html" class="nav-link">
+                        <i class="fas fa-user"></i>
+                        تسجيل دخول
+                    </a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>سلة المشتريات</h1>
+            <p>راجع منتجاتك وأكمل عملية الشراء</p>
+        </div>
+    </section>
+
+    <!-- Cart Section -->
+    <section class="cart-section">
+        <div class="container">
+            <div class="cart-layout">
+                
+                <!-- Cart Items -->
+                <div class="cart-items-container">
+                    <div class="cart-header">
+                        <h2>
+                            <i class="fas fa-shopping-bag"></i>
+                            منتجاتك (<span id="items-count">0</span>)
+                        </h2>
+                        <button class="btn btn-secondary-outline btn-sm" id="clear-cart">
+                            <i class="fas fa-trash"></i>
+                            إفراغ السلة
+                        </button>
+                    </div>
+                    
+                    <div id="cart-items">
+                        <!-- سيتم ملؤها من JavaScript -->
+                    </div>
+                    
+                    <!-- Empty Cart -->
+                    <div class="empty-cart" id="empty-cart">
+                        <i class="fas fa-shopping-cart"></i>
+                        <h3>سلتك فارغة</h3>
+                        <p>لم تقم بإضافة أي منتجات بعد</p>
+                        <a href="products.html" class="btn btn-primary">
+                            <i class="fas fa-shopping-bag"></i>
+                            تصفح المنتجات
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Order Summary -->
+                <aside class="order-summary" id="order-summary">
+                    <h3>ملخص الطلب</h3>
+                    
+                    <div class="summary-row">
+                        <span>المجموع الفرعي</span>
+                        <span id="subtotal">0 ر.س</span>
+                    </div>
+                    
+                    <div class="summary-row">
+                        <span>الضريبة (15%)</span>
+                        <span id="tax">0 ر.س</span>
+                    </div>
+                    
+                    <div class="summary-divider"></div>
+                    
+                    <div class="summary-row total">
+                        <span>الإجمالي</span>
+                        <span id="total">0 ر.س</span>
+                    </div>
+                    
+                    <a href="checkout.html" class="btn btn-primary btn-block btn-lg">
+                        <i class="fas fa-credit-card"></i>
+                        إتمام الطلب
+                    </a>
+                    
+                    <a href="products.html" class="btn btn-secondary-outline btn-block">
+                        <i class="fas fa-arrow-right"></i>
+                        متابعة التسوق
+                    </a>
+                    
+                    <div class="security-badges">
+                        <div class="badge-item">
+                            <i class="fas fa-lock"></i>
+                            <span>دفع آمن</span>
+                        </div>
+                        <div class="badge-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>حماية البيانات</span>
+                        </div>
+                    </div>
+                </aside>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2024 متجر المنتجات الرقمية. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast -->
+    <div class="toast" id="toast">
+        <i class="fas fa-check-circle"></i>
+        <span id="toast-message">تمت العملية بنجاح</span>
+    </div>
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+    
+    <!-- Scripts -->
+    <script src="js/config.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/cart.js"></script>
+</body>
+                                                                                     </html>
