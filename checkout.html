@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إتمام الطلب - متجر المنتجات الرقمية</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <i class="fas fa-download"></i>
+                    <span>متجر المنتجات الرقمية</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Checkout Steps -->
+    <section class="checkout-steps">
+        <div class="container">
+            <div class="steps">
+                <div class="step completed">
+                    <div class="step-icon"><i class="fas fa-shopping-cart"></i></div>
+                    <div class="step-label">السلة</div>
+                </div>
+                <div class="step active">
+                    <div class="step-icon"><i class="fas fa-user"></i></div>
+                    <div class="step-label">البيانات</div>
+                </div>
+                <div class="step">
+                    <div class="step-icon"><i class="fas fa-credit-card"></i></div>
+                    <div class="step-label">الدفع</div>
+                </div>
+                <div class="step">
+                    <div class="step-icon"><i class="fas fa-check"></i></div>
+                    <div class="step-label">اكتمل</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Checkout Form -->
+    <section class="checkout-section">
+        <div class="container">
+            <div class="checkout-layout">
+                
+                <!-- Form -->
+                <div class="checkout-form-container">
+                    <h2>معلومات الفاتورة</h2>
+                    
+                    <form id="checkout-form" class="checkout-form">
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>الاسم الأول <span class="required">*</span></label>
+                                <input type="text" name="firstName" required>
+                            </div>
+                            <div class="form-group">
+                                <label>اسم العائلة <span class="required">*</span></label>
+                                <input type="text" name="lastName" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>البريد الإلكتروني <span class="required">*</span></label>
+                            <input type="email" name="email" required>
+                            <small>سيتم إرسال رابط التحميل إلى هذا البريد</small>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>رقم الجوال <span class="required">*</span></label>
+                            <input type="tel" name="phone" required placeholder="+966">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>الدولة <span class="required">*</span></label>
+                            <select name="country" required>
+                                <option value="">اختر الدولة</option>
+                                <option value="SA">السعودية</option>
+                                <option value="AE">الإمارات</option>
+                                <option value="EG">مصر</option>
+                                <option value="JO">الأردن</option>
+                                <option value="KW">الكويت</option>
+                                <option value="QA">قطر</option>
+                                <option value="BH">البحرين</option>
+                                <option value="OM">عمان</option>
+                                <option value="LB">لبنان</option>
+                                <option value="IQ">العراق</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>المدينة <span class="required">*</span></label>
+                            <input type="text" name="city" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>ملاحظات الطلب (اختياري)</label>
+                            <textarea name="notes" rows="4" placeholder="ملاحظات حول طلبك..."></textarea>
+                        </div>
+                        
+                        <div class="form-divider"></div>
+                        
+                        <h3>طريقة الدفع</h3>
+                        
+                        <div class="payment-methods">
+                            <label class="payment-method">
+                                <input type="radio" name="payment" value="card" checked>
+                                <div class="payment-option">
+                                    <i class="fas fa-credit-card"></i>
+                                    <span>بطاقة ائتمان / مدى</span>
+                                </div>
+                            </label>
+                            
+                            <label class="payment-method">
+                                <input type="radio" name="payment" value="bank">
+                                <div class="payment-option">
+                                    <i class="fas fa-university"></i>
+                                    <span>تحويل بنكي</span>
+                                </div>
+                            </label>
+                        </div>
+                        
+                        <div class="form-group checkbox-group">
+                            <label>
+                                <input type="checkbox" name="terms" required>
+                                <span>أوافق على <a href="#">الشروط والأحكام</a> و <a href="#">سياسة الخصوصية</a></span>
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-block btn-lg">
+                            <i class="fas fa-lock"></i>
+                            إتمام الطلب والدفع
+                        </button>
+                        
+                    </form>
+                </div>
+                
+                <!-- Order Summary -->
+                <aside class="checkout-summary">
+                    <h3>ملخص طلبك</h3>
+                    
+                    <div class="summary-items" id="summary-items">
+                        <!-- سيتم ملؤها من JavaScript -->
+                    </div>
+                    
+                    <div class="summary-divider"></div>
+                    
+                    <div class="summary-totals">
+                        <div class="summary-row">
+                            <span>المجموع الفرعي</span>
+                            <span id="summary-subtotal">0 ر.س</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>الضريبة (15%)</span>
+                            <span id="summary-tax">0 ر.س</span>
+                        </div>
+                        <div class="summary-row total">
+                            <span>الإجمالي</span>
+                            <span id="summary-total">0 ر.س</span>
+                        </div>
+                    </div>
+                    
+                    <div class="trust-badges">
+                        <div class="trust-badge">
+                            <i class="fas fa-shield-alt"></i>
+                            <div>
+                                <strong>دفع آمن</strong>
+                                <small>معاملات مشفرة</small>
+                            </div>
+                        </div>
+                        <div class="trust-badge">
+                            <i class="fas fa-bolt"></i>
+                            <div>
+                                <strong>تحميل فوري</strong>
+                                <small>بعد الدفع مباشرة</small>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Toast -->
+    <div class="toast" id="toast"></div>
+    
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loading-overlay">
+        <div class="loading-spinner">
+            <i class="fas fa-spinner fa-spin"></i>
+            <p>جاري معالجة طلبك...</p>
+        </div>
+    </div>
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+    
+    <!-- Scripts -->
+    <script src="js/config.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/checkout.js"></script>
+</body>
+  </html>
