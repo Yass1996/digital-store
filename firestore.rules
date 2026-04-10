@@ -1,0 +1,35 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // قواعد المنتجات
+    match /products/{productId} {
+      // الجميع يستطيع القراءة (للزوار)
+      allow read: if true;
+      
+      // فقط المستخدمين المصرح لهم يمكنهم الكتابة/التعديل/الحذف
+      allow write: if request.auth != null;
+    }
+    
+    // قواعد الطلبات
+    match /orders/{orderId} {
+      // فقط المصرح لهم يمكنهم القراءة
+      allow read: if request.auth != null;
+      
+      // أي شخص يمكنه إنشاء طلب (للعملاء)
+      allow create: if true;
+      
+      // فقط المصرح لهم يمكنهم التعديل والحذف
+      allow update, delete: if request.auth != null;
+    }
+    
+    // قواعد الإعدادات
+    match /settings/{settingId} {
+      // الجميع يستطيع القراءة
+      allow read: if true;
+      
+      // فقط المصرح لهم يمكنهم الكتابة
+      allow write: if request.auth != null;
+    }
+  }
+}
