@@ -13,14 +13,29 @@
    5. انسخ الـ firebaseConfig
    =================================== */
 
-const firebaseConfig = {
-    apiKey: "YOUR_API_KEY_HERE",
-    authDomain: "your-project-id.firebaseapp.com",
-    projectId: "your-project-id",
-    storageBucket: "your-project-id.appspot.com",
-    messagingSenderId: "123456789",
-    appId: "1:123456789:web:abcdef123456"
-};
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.12.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.12.0/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyBTl4-rcUSRKgwlcw0Kdj9d5ueSB94yt7k",
+    authDomain: "digital-store-4a393.firebaseapp.com",
+    projectId: "digital-store-4a393",
+    storageBucket: "digital-store-4a393.firebasestorage.app",
+    messagingSenderId: "1054939252778",
+    appId: "1:1054939252778:web:1a98bd91c62ab60e1a1b53",
+    measurementId: "G-1NFM1Y1VSR"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>
 
 // تهيئة Firebase
 firebase.initializeApp(firebaseConfig);
