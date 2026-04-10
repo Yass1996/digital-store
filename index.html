@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>متجر المنتجات الرقمية - الرئيسية</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Font Awesome للأيقونات -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <i class="fas fa-download"></i>
+                    <span id="store-name">متجر المنتجات الرقمية</span>
+                </div>
+                
+                <nav class="nav">
+                    <a href="index.html" class="nav-link active">الرئيسية</a>
+                    <a href="products.html" class="nav-link">المنتجات</a>
+                    <a href="cart.html" class="nav-link">
+                        <i class="fas fa-shopping-cart"></i>
+                        السلة
+                        <span class="cart-badge" id="cart-count">0</span>
+                    </a>
+                    <a href="login.html" class="nav-link">
+                        <i class="fas fa-user"></i>
+                        تسجيل دخول
+                    </a>
+                </nav>
+                
+                <!-- Mobile Menu Toggle -->
+                <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    احصل على أفضل المنتجات الرقمية
+                </h1>
+                <p class="hero-subtitle">
+                    كورسات، قوالب، كتب إلكترونية، برامج، وأكثر...<br>
+                    تحميل فوري بعد الشراء مباشرة
+                </p>
+                <div class="hero-buttons">
+                    <a href="products.html" class="btn btn-primary btn-lg">
+                        <i class="fas fa-shopping-bag"></i>
+                        تصفح المنتجات
+                    </a>
+                    <a href="#features" class="btn btn-secondary btn-lg">
+                        <i class="fas fa-info-circle"></i>
+                        المزيد من المعلومات
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Animated Background -->
+        <div class="hero-bg">
+            <div class="floating-icon" style="top: 20%; left: 10%;">
+                <i class="fas fa-book"></i>
+            </div>
+            <div class="floating-icon" style="top: 60%; left: 80%;">
+                <i class="fas fa-video"></i>
+            </div>
+            <div class="floating-icon" style="top: 40%; left: 70%;">
+                <i class="fas fa-file-pdf"></i>
+            </div>
+            <div class="floating-icon" style="top: 70%; left: 20%;">
+                <i class="fas fa-laptop-code"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title">لماذا تختار متجرنا؟</h2>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>تحميل فوري</h3>
+                    <p>احصل على منتجك مباشرة بعد الدفع بدون انتظار</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>آمن 100%</h3>
+                    <p>جميع المعاملات محمية بأعلى معايير الأمان</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>دعم فني</h3>
+                    <p>فريقنا جاهز لمساعدتك في أي وقت</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-sync"></i>
+                    </div>
+                    <h3>تحديثات مجانية</h3>
+                    <p>احصل على التحديثات مدى الحياة</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="featured-products">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">المنتجات المميزة</h2>
+                <a href="products.html" class="view-all">
+                    عرض الكل
+                    <i class="fas fa-arrow-left"></i>
+                </a>
+            </div>
+            
+            <div class="products-grid" id="featured-products">
+                <!-- سيتم ملء المنتجات هنا من Firebase -->
+                <div class="loading">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    جاري التحميل...
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number" data-count="1000">0</div>
+                    <div class="stat-label">منتج رقمي</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-number" data-count="5000">0</div>
+                    <div class="stat-label">عميل سعيد</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-number" data-count="10000">0</div>
+                    <div class="stat-label">تحميل ناجح</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-number" data-count="99">0</div>
+                    <div class="stat-label">نسبة الرضا %</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>ابدأ التحميل الآن!</h2>
+                <p>آلاف المنتجات الرقمية في انتظارك</p>
+                <a href="products.html" class="btn btn-light btn-lg">
+                    <i class="fas fa-rocket"></i>
+                    استكشف المنتجات
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>عن المتجر</h4>
+                    <p>منصة متخصصة في بيع المنتجات الرقمية عالية الجودة</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>روابط سريعة</h4>
+                    <ul>
+                        <li><a href="products.html">المنتجات</a></li>
+                        <li><a href="#">من نحن</a></li>
+                        <li><a href="#">اتصل بنا</a></li>
+                        <li><a href="#">الأسئلة الشائعة</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>الدعم</h4>
+                    <ul>
+                        <li><a href="#">سياسة الخصوصية</a></li>
+                        <li><a href="#">شروط الاستخدام</a></li>
+                        <li><a href="#">سياسة الاسترجاع</a></li>
+                        <li><a href="#">طرق الدفع</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>تواصل معنا</h4>
+                    <ul class="contact-info">
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            info@digitalstore.com
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            +966 XX XXX XXXX
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            الرياض، المملكة العربية السعودية
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 متجر المنتجات الرقمية. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Notification Toast -->
+    <div class="toast" id="toast">
+        <i class="fas fa-check-circle"></i>
+        <span id="toast-message">تمت العملية بنجاح</span>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+    
+    <!-- Custom Scripts -->
+    <script src="js/config.js"></script>
+    <script src="js/app.js"></script>
+    
+    <script>
+        // Counter Animation
+        const animateCounters = () => {
+            const counters = document.querySelectorAll('.stat-number');
+            
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-count'));
+                const duration = 2000;
+                const increment = target / (duration / 16);
+                let current = 0;
+                
+                const updateCounter = () => {
+                    current += increment;
+                    if (current < target) {
+                        counter.textContent = Math.floor(current);
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        counter.textContent = target;
+                    }
+                };
+                
+                updateCounter();
+            });
+        };
+        
+        // Trigger animation when stats section is visible
+        const statsSection = document.querySelector('.stats');
+        const observer = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting) {
+                animateCounters();
+                observer.unobserve(statsSection);
+            }
+        });
+        
+        observer.observe(statsSection);
+        
+        // Mobile Menu Toggle
+        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+        const nav = document.querySelector('.nav');
+        
+        mobileMenuToggle.addEventListener('click', () => {
+            nav.classList.toggle('active');
+        });
+    </script>
+</body>
+  </html>
