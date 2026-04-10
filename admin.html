@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحة التحكم - Admin Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="admin-body">
+    
+    <!-- Admin Sidebar -->
+    <aside class="admin-sidebar" id="admin-sidebar">
+        <div class="admin-logo">
+            <i class="fas fa-shield-alt"></i>
+            <span>لوحة التحكم</span>
+        </div>
+        
+        <nav class="admin-nav">
+            <a href="#dashboard" class="admin-nav-link active" data-section="dashboard">
+                <i class="fas fa-chart-line"></i>
+                <span>لوحة المعلومات</span>
+            </a>
+            <a href="#products" class="admin-nav-link" data-section="products">
+                <i class="fas fa-box"></i>
+                <span>المنتجات</span>
+            </a>
+            <a href="#orders" class="admin-nav-link" data-section="orders">
+                <i class="fas fa-shopping-bag"></i>
+                <span>الطلبات</span>
+            </a>
+            <a href="#settings" class="admin-nav-link" data-section="settings">
+                <i class="fas fa-cog"></i>
+                <span>الإعدادات</span>
+            </a>
+        </nav>
+        
+        <div class="admin-user">
+            <div class="admin-user-info">
+                <i class="fas fa-user-circle"></i>
+                <div>
+                    <strong id="admin-name">المدير</strong>
+                    <small id="admin-email">admin@store.com</small>
+                </div>
+            </div>
+            <button class="btn btn-danger btn-sm" id="logout-btn">
+                <i class="fas fa-sign-out-alt"></i>
+                خروج
+            </button>
+        </div>
+    </aside>
+
+    <!-- Admin Main Content -->
+    <main class="admin-main">
+        
+        <!-- Header -->
+        <header class="admin-header">
+            <button class="sidebar-toggle" id="sidebar-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <h1 id="page-title">لوحة المعلومات</h1>
+            <div class="header-actions">
+                <a href="index.html" class="btn btn-secondary" target="_blank">
+                    <i class="fas fa-external-link-alt"></i>
+                    زيارة الموقع
+                </a>
+            </div>
+        </header>
+
+        <!-- Dashboard Section -->
+        <section class="admin-section active" id="section-dashboard">
+            
+            <!-- Stats Cards -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon blue">
+                        <i class="fas fa-box"></i>
+                    </div>
+                    <div class="stat-details">
+                        <h3 id="total-products">0</h3>
+                        <p>إجمالي المنتجات</p>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon green">
+                        <i class="fas fa-shopping-bag"></i>
+                    </div>
+                    <div class="stat-details">
+                        <h3 id="total-orders">0</h3>
+                        <p>إجمالي الطلبات</p>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon yellow">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="stat-details">
+                        <h3 id="pending-orders">0</h3>
+                        <p>طلبات قيد المعالجة</p>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon purple">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <div class="stat-details">
+                        <h3 id="total-revenue">0 ر.س</h3>
+                        <p>إجمالي الإيرادات</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Recent Orders -->
+            <div class="admin-card">
+                <div class="card-header">
+                    <h2>أحدث الطلبات</h2>
+                    <a href="#orders" class="view-all-link" data-section="orders">عرض الكل</a>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>رقم الطلب</th>
+                                    <th>العميل</th>
+                                    <th>المنتجات</th>
+                                    <th>المبلغ</th>
+                                    <th>الحالة</th>
+                                    <th>التاريخ</th>
+                                </tr>
+                            </thead>
+                            <tbody id="recent-orders">
+                                <tr>
+                                    <td colspan="6" class="text-center">
+                                        <i class="fas fa-spinner fa-spin"></i> جاري التحميل...
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            
+        </section>
+
+        <!-- Products Section -->
+        <section class="admin-section" id="section-products">
+            
+            <div class="section-header">
+                <h2>إدارة المنتجات</h2>
+                <button class="btn btn-primary" id="add-product-btn">
+                    <i class="fas fa-plus"></i>
+                    إضافة منتج جديد
+                </button>
+            </div>
+            
+            <div class="admin-card">
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>الصورة</th>
+                                    <th>الاسم</th>
+                                    <th>الفئة</th>
+                                    <th>السعر</th>
+                                    <th>الحالة</th>
+                                    <th>الإجراءات</th>
+                                </tr>
+                            </thead>
+                            <tbody id="products-table">
+                                <tr>
+                                    <td colspan="6" class="text-center">
+                                        <i class="fas fa-spinner fa-spin"></i> جاري التحميل...
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            
+        </section>
+
+        <!-- Orders Section -->
+        <section class="admin-section" id="section-orders">
+            
+            <div class="section-header">
+                <h2>إدارة الطلبات</h2>
+                <div class="filters">
+                    <select id="order-status-filter" class="filter-select">
+                        <option value="all">جميع الحالات</option>
+                        <option value="pending">قيد المعالجة</option>
+                        <option value="completed">مكتمل</option>
+                        <option value="cancelled">ملغي</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="admin-card">
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>رقم الطلب</th>
+                                    <th>العميل</th>
+                                    <th>البريد الإلكتروني</th>
+                                    <th>المنتجات</th>
+                                    <th>المبلغ</th>
+                                    <th>الحالة</th>
+                                    <th>التاريخ</th>
+                                    <th>الإجراءات</th>
+                                </tr>
+                            </thead>
+                            <tbody id="orders-table">
+                                <tr>
+                                    <td colspan="8" class="text-center">
+                                        <i class="fas fa-spinner fa-spin"></i> جاري التحميل...
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            
+        </section>
+
+        <!-- Settings Section -->
+        <section class="admin-section" id="section-settings">
+            
+            <h2>إعدادات المتجر</h2>
+            
+            <div class="admin-card">
+                <div class="card-header">
+                    <h3>المعلومات الأساسية</h3>
+                </div>
+                <div class="card-body">
+                    <form id="settings-form">
+                        <div class="form-group">
+                            <label>اسم المتجر</label>
+                            <input type="text" name="storeName" id="store-name-input" class="form-control">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>شعار المتجر (رابط الصورة)</label>
+                            <input type="url" name="storeLogo" id="store-logo-input" class="form-control">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>اللون الأساسي</label>
+                            <input type="color" name="primaryColor" id="primary-color-input" class="form-control">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>وصف المتجر</label>
+                            <textarea name="storeDescription" id="store-desc-input" class="form-control" rows="4"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-save"></i>
+                            حفظ التغييرات
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+        </section>
+
+    </main>
+
+    <!-- Add/Edit Product Modal -->
+    <div class="modal" id="product-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-title">إضافة منتج جديد</h3>
+                <button class="modal-close" id="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="product-form">
+                    <input type="hidden" id="product-id">
+                    
+                    <div class="form-group">
+                        <label>اسم المنتج <span class="required">*</span></label>
+                        <input type="text" id="product-name" required class="form-control">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>الوصف <span class="required">*</span></label>
+                        <textarea id="product-description" required class="form-control" rows="4"></textarea>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>السعر (ر.س) <span class="required">*</span></label>
+                            <input type="number" id="product-price" required class="form-control" min="0" step="0.01">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>الفئة <span class="required">*</span></label>
+                            <select id="product-category" required class="form-control">
+                                <option value="">اختر الفئة</option>
+                                <option value="courses">كورسات</option>
+                                <option value="ebooks">كتب إلكترونية</option>
+                                <option value="templates">قوالب</option>
+                                <option value="software">برامج</option>
+                                <option value="graphics">تصاميم جرافيك</option>
+                                <option value="music">موسيقى وصوتيات</option>
+                                <option value="other">أخرى</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>رابط الصورة <span class="required">*</span></label>
+                        <input type="url" id="product-image" required class="form-control" placeholder="https://example.com/image.jpg">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>رابط التحميل <span class="required">*</span></label>
+                        <input type="url" id="product-download" required class="form-control" placeholder="https://drive.google.com/...">
+                        <small>يمكنك استخدام Google Drive أو Dropbox</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>الحالة</label>
+                        <select id="product-status" class="form-control">
+                            <option value="active">نشط</option>
+                            <option value="inactive">غير نشط</option>
+                        </select>
+                    </div>
+                    
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" id="cancel-btn">إلغاء</button>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-save"></i>
+                            حفظ المنتج
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast -->
+    <div class="toast" id="toast"></div>
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+    
+    <!-- Scripts -->
+    <script src="js/config.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>
