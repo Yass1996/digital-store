@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المنتجات - متجر المنتجات الرقمية</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <i class="fas fa-download"></i>
+                    <span>متجر المنتجات الرقمية</span>
+                </div>
+                
+                <nav class="nav">
+                    <a href="index.html" class="nav-link">الرئيسية</a>
+                    <a href="products.html" class="nav-link active">المنتجات</a>
+                    <a href="cart.html" class="nav-link">
+                        <i class="fas fa-shopping-cart"></i>
+                        السلة
+                        <span class="cart-badge" id="cart-count">0</span>
+                    </a>
+                    <a href="login.html" class="nav-link">
+                        <i class="fas fa-user"></i>
+                        تسجيل دخول
+                    </a>
+                </nav>
+                
+                <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>جميع المنتجات</h1>
+            <p>اكتشف مجموعتنا الكاملة من المنتجات الرقمية</p>
+        </div>
+    </section>
+
+    <!-- Filters & Products -->
+    <section class="products-section">
+        <div class="container">
+            <div class="products-layout">
+                
+                <!-- Sidebar Filters -->
+                <aside class="filters-sidebar">
+                    <div class="filter-card">
+                        <h3>
+                            <i class="fas fa-filter"></i>
+                            تصفية النتائج
+                        </h3>
+                        
+                        <!-- Search -->
+                        <div class="filter-group">
+                            <label>البحث</label>
+                            <div class="search-box">
+                                <i class="fas fa-search"></i>
+                                <input type="text" id="search-input" placeholder="ابحث عن منتج...">
+                            </div>
+                        </div>
+                        
+                        <!-- Categories -->
+                        <div class="filter-group">
+                            <label>الفئات</label>
+                            <div class="filter-options" id="categories-filter">
+                                <label class="filter-option">
+                                    <input type="radio" name="category" value="all" checked>
+                                    <span>الكل</span>
+                                </label>
+                                <!-- سيتم ملؤها من Firebase -->
+                            </div>
+                        </div>
+                        
+                        <!-- Price Range -->
+                        <div class="filter-group">
+                            <label>السعر</label>
+                            <div class="filter-options">
+                                <label class="filter-option">
+                                    <input type="radio" name="price" value="all" checked>
+                                    <span>الكل</span>
+                                </label>
+                                <label class="filter-option">
+                                    <input type="radio" name="price" value="0-100">
+                                    <span>أقل من 100 ر.س</span>
+                                </label>
+                                <label class="filter-option">
+                                    <input type="radio" name="price" value="100-300">
+                                    <span>100 - 300 ر.س</span>
+                                </label>
+                                <label class="filter-option">
+                                    <input type="radio" name="price" value="300-500">
+                                    <span>300 - 500 ر.س</span>
+                                </label>
+                                <label class="filter-option">
+                                    <input type="radio" name="price" value="500+">
+                                    <span>أكثر من 500 ر.س</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <!-- Sort -->
+                        <div class="filter-group">
+                            <label>ترتيب حسب</label>
+                            <select id="sort-select" class="filter-select">
+                                <option value="newest">الأحدث</option>
+                                <option value="oldest">الأقدم</option>
+                                <option value="price-low">السعر: من الأقل للأعلى</option>
+                                <option value="price-high">السعر: من الأعلى للأقل</option>
+                                <option value="name-az">الاسم: أ - ي</option>
+                                <option value="name-za">الاسم: ي - أ</option>
+                            </select>
+                        </div>
+                        
+                        <button class="btn btn-secondary btn-block" id="reset-filters">
+                            <i class="fas fa-redo"></i>
+                            إعادة تعيين
+                        </button>
+                    </div>
+                </aside>
+                
+                <!-- Products Grid -->
+                <div class="products-content">
+                    <div class="products-header">
+                        <p class="products-count">
+                            <span id="products-count">0</span> منتج
+                        </p>
+                        
+                        <!-- Mobile Filter Toggle -->
+                        <button class="btn btn-secondary mobile-filter-toggle" id="mobile-filter-toggle">
+                            <i class="fas fa-filter"></i>
+                            تصفية
+                        </button>
+                    </div>
+                    
+                    <div class="products-grid" id="products-grid">
+                        <!-- Loading State -->
+                        <div class="loading-state">
+                            <i class="fas fa-spinner fa-spin"></i>
+                            <p>جاري تحميل المنتجات...</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Empty State -->
+                    <div class="empty-state" id="empty-state" style="display: none;">
+                        <i class="fas fa-box-open"></i>
+                        <h3>لا توجد منتجات</h3>
+                        <p>لم نجد أي منتجات تطابق بحثك</p>
+                        <button class="btn btn-primary" id="clear-search">
+                            مسح البحث
+                        </button>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2024 متجر المنتجات الرقمية. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <i class="fas fa-check-circle"></i>
+        <span id="toast-message">تمت العملية بنجاح</span>
+    </div>
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+    
+    <!-- Scripts -->
+    <script src="js/config.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/products.js"></script>
+</body>
+</html>
